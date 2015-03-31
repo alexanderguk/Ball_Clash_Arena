@@ -3,7 +3,10 @@
 public class HeroController : MonoBehaviour {
     public float maxSpeedCoeff;
     public float mouseControlGap;
-	
+	public GameObject blastWave;
+	public float blastWaveCooldown;
+
+	private float currentBlastWaveCooldown;
 	private float maxSpeed;
 	private float positionY;
 
@@ -24,7 +27,12 @@ public class HeroController : MonoBehaviour {
 			}
 			if (Input.GetKey(KeyCode.A)) {
 				GetComponent<Rigidbody2D>().AddForce(new Vector2(-maxSpeed, 0));
-            }
+			}
+			if (Input.GetKey(KeyCode.Space) && currentBlastWaveCooldown <= 0) {
+				(Instantiate(blastWave, new Vector2(transform.position.x, transform.position.y),
+				             Quaternion.identity) as GameObject).transform.parent = transform;
+				currentBlastWaveCooldown = blastWaveCooldown;
+			}
             // Mouse/touch control
             if (Input.GetMouseButton(0)) {
                 float pixelsToUnit = GetComponent<SpriteRenderer>().sprite.rect.width / GetComponent<SpriteRenderer>().sprite.bounds.size.x;
@@ -36,5 +44,9 @@ public class HeroController : MonoBehaviour {
                 }
             }
         }
+
+		if (currentBlastWaveCooldown > 0) {
+			currentBlastWaveCooldown -= Time.fixedDeltaTime;
+		}
 	}
 }

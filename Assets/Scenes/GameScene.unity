@@ -332,6 +332,10 @@ Prefab:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 1313414779}
+    - target: {fileID: 152590, guid: e9b598c630284d04c91b578633063272, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e9b598c630284d04c91b578633063272, type: 2}
   m_IsPrefabParent: 0
@@ -423,6 +427,10 @@ Prefab:
       propertyPath: gamePanelCanvas
       value: 
       objectReference: {fileID: 224381052}
+    - target: {fileID: 133606, guid: 7a797e03654d6e2429e4493c077b23b3, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7a797e03654d6e2429e4493c077b23b3, type: 2}
   m_IsPrefabParent: 0

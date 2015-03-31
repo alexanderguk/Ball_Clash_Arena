@@ -7,15 +7,15 @@ public class BallController : MonoBehaviour {
     public float accelerationTime;
     public float scoreLineMargin;
 
-    private float direction;
+    private float initialDirection;
 	private float currentKinematicTime;
 	private bool isScored;
 	private float currentSpeed;
 
 	private SpriteRenderer spriteRenderer;
 
-	public void Init(float direction) {
-		this.direction = direction;
+	public void Init(float initialDirection) {
+		this.initialDirection = initialDirection;
 	}
 	
 	void Start() {
@@ -27,7 +27,7 @@ public class BallController : MonoBehaviour {
 		spriteRenderer.color = Color.black;
 
 		GetComponent<Rigidbody2D>().velocity = 
-			new Vector2(Mathf.Cos(direction) * currentSpeed, Mathf.Sin(direction) * currentSpeed);
+			new Vector2(Mathf.Cos(initialDirection) * currentSpeed, Mathf.Sin(initialDirection) * currentSpeed);
 
         AudioController.Instance.spawnBallSound.Play();
 	}
@@ -86,5 +86,10 @@ public class BallController : MonoBehaviour {
 
 	void OnCollisionEnter2D(Collision2D collision) {
         AudioController.Instance.collisionBallSound.Play();
+	}
+
+	public void SetDirection(float direction) {
+		GetComponent<Rigidbody2D>().velocity = 
+			new Vector2(Mathf.Cos(direction) * currentSpeed, Mathf.Sin(direction) * currentSpeed);
 	}
 }

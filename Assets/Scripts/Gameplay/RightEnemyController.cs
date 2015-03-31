@@ -1,15 +1,10 @@
 ﻿using UnityEngine;
 
-public class RightEnemyController : MonoBehaviour {
-    public float maxSpeedCoeff;
-    public float restPositionOffset;
-    
-    private float maxSpeed;
+public class RightEnemyController : UnitController {
     private float positionX;
-    private GameObject target;
 	
 	void Start() {
-        maxSpeed = maxSpeedCoeff * GetComponent<Rigidbody2D>().mass;
+		base.Start();
 		positionX = transform.position.x;
 	}
 	
@@ -32,27 +27,29 @@ public class RightEnemyController : MonoBehaviour {
 			} else {
 				GetComponent<Rigidbody2D>().AddForce(new Vector2(0, -maxSpeed));
 			}
-        }
+		}
+		
+		UpdateBlastWave();
 	}
 	
 	private void UpdateTarget() {
 		float currentMagnitude = float.MaxValue;
+		GameObject previousTarget = target;
         target = null;
-        foreach (GameObject g in GameObject.FindGameObjectsWithTag("Ball"))
-		{
+        foreach (GameObject g in GameObject.FindGameObjectsWithTag("Ball")) {
 			if (g.transform.position.x < transform.position.x && 
                 g.transform.position.y > - GameController.Instance.ArenaHeight / 2 && 
-                g.transform.position.y < GameController.Instance.ArenaHeight / 2)
-			{
+                g.transform.position.y < GameController.Instance.ArenaHeight / 2) {
 				Vector2 v = new Vector2(g.transform.position.x - transform.position.x, 
 				                        g.transform.position.y - transform.position.y);
 				if (g.GetComponent<Rigidbody2D>() != null && v.magnitude < currentMagnitude && 
-				    g.GetComponent<Rigidbody2D>().velocity.x > 0)
-				{
+				    g.GetComponent<Rigidbody2D>().velocity.x > 0) {
 					currentMagnitude = v.magnitude;
 					target = g;
 				}
 			}
 		}
+		
+		UpdateUseBlastWave(previousTarget);
 	}
 }
