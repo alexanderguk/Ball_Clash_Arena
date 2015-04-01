@@ -3,6 +3,7 @@
 public class MusicController : MonoBehaviour {
 	public float fadeInTime;
 	public float fadeOutTime;
+	public float maxVolume;
 
 	private bool isFadeOut;
     private bool isFadeIn;
@@ -26,9 +27,10 @@ public class MusicController : MonoBehaviour {
         if (!music.isPlaying) { 
             music.Play(); 
         }
-        if (music.volume < 1) {
+		if (music.volume < maxVolume) {
 			music.volume += Time.fixedDeltaTime / fadeInTime;
 		} else {
+			music.volume = maxVolume;
 			isFadeIn = false;
 		}
 	}

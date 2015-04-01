@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class TopEnemyController : UnitController {
+public class TopEnemyController : EnemyController {
     private float positionY;
 
 	void Start() {

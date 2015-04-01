@@ -6,5 +6,6 @@ public class AudioController : Singleton<AudioController> {
     public AudioSource scoreBallSound;
     public AudioSource spawnBallSound;
     public AudioSource winSound;
-    public AudioSource loseSound;
+	public AudioSource loseSound;
+	public AudioSource blastWaveSound;
 }

@@ -10,7 +10,7 @@ GameObject:
   - 4: {fileID: 492732}
   - 82: {fileID: 8273830}
   m_Layer: 0
-  m_Name: WinSound
+  m_Name: BlastWaveSound
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -43,6 +43,22 @@ GameObject:
   - 82: {fileID: 8201098}
   m_Layer: 0
   m_Name: CollisionBallSound
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &147552
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 422384}
+  - 82: {fileID: 8254492}
+  m_Layer: 0
+  m_Name: WinSound
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -125,6 +141,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 490146}
   m_RootOrder: 3
+--- !u!4 &422384
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 147552}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 490146}
+  m_RootOrder: 5
 --- !u!4 &426300
 Transform:
   m_ObjectHideFlags: 1
@@ -188,6 +216,7 @@ Transform:
   - {fileID: 437090}
   - {fileID: 420328}
   - {fileID: 426300}
+  - {fileID: 422384}
   - {fileID: 492732}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -202,7 +231,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 490146}
-  m_RootOrder: 5
+  m_RootOrder: 6
 --- !u!82 &8201098
 AudioSource:
   m_ObjectHideFlags: 1
@@ -214,7 +243,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: b6b4e1ff03f8ba14e97cfabee97d85b9, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: .600000024
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -283,7 +312,76 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: d24cfd613b77a674f8b61d710baf5ab5, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: .600000024
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+--- !u!82 &8254492
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 147552}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: a28869eef8f94684dbc8b2e162e0d453, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: .600000024
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -350,7 +448,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: a28869eef8f94684dbc8b2e162e0d453, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 5442d3e1a2f901a439a7471b0c78ced6, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -490,7 +588,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 5469572a4b6d6084a9f99d23d0926b49, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: .600000024
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -559,7 +657,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 4ea7f968f546f38429606fda5eee68bf, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: .600000024
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -630,6 +728,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fadeInTime: .5
   fadeOutTime: .5
+  maxVolume: .600000024
 --- !u!114 &11477940
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -645,8 +744,9 @@ MonoBehaviour:
   collisionBallSound: {fileID: 8201098}
   scoreBallSound: {fileID: 8283222}
   spawnBallSound: {fileID: 8286662}
-  winSound: {fileID: 8273830}
+  winSound: {fileID: 8254492}
   loseSound: {fileID: 8254180}
+  blastWaveSound: {fileID: 8273830}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

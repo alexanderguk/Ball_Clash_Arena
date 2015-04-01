@@ -10,6 +10,7 @@ public class BlastWaveController : MonoBehaviour {
 				                                                           go.transform.position.x - transform.position.x));
 			}
 		}
+		AudioController.Instance.blastWaveSound.Play();
 	}
 
 	void FixedUpdate() {

@@ -1,18 +1,13 @@
 ﻿using UnityEngine;
 
-public class HeroController : MonoBehaviour {
-    public float maxSpeedCoeff;
+public class HeroController : UnitController {
     public float mouseControlGap;
-	public GameObject blastWave;
-	public float blastWaveCooldown;
 	public float touchAreaGap;
 
-	private float currentBlastWaveCooldown;
-	private float maxSpeed;
 	private float positionY;
 
 	void Start() {
-        maxSpeed = maxSpeedCoeff * GetComponent<Rigidbody2D>().mass;
+		base.Start();
 		positionY = transform.position.y;
 	}
 
@@ -57,8 +52,6 @@ public class HeroController : MonoBehaviour {
 			#endif
 		}
 		
-		if (currentBlastWaveCooldown > 0) {
-			currentBlastWaveCooldown -= Time.fixedDeltaTime;
-		}
+		UpdateCurrentBlastWaveCooldown();
 	}
 }

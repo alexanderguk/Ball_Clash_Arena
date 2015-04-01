@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class RightEnemyController : UnitController {
+public class RightEnemyController : EnemyController {
     private float positionX;
 	
 	void Start() {
