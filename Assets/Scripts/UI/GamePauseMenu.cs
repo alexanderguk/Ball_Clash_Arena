@@ -1,9 +1,7 @@
-﻿using UnityEngine;
-using UnityEngine.UI;
-using System.Collections;
+using UnityEngine;
 
 public class GamePauseMenu : MonoBehaviour {
-    public Canvas gamePanelCanvas;
+	[SerializeField] private Canvas gamePanelCanvas;
 
     void Start() {
         GetComponent<Canvas>().enabled = false;
@@ -12,7 +10,7 @@ public class GamePauseMenu : MonoBehaviour {
     public void Resume() {
         Time.timeScale = 1;
         if (gamePanelCanvas.GetComponent<GamePanel>().IsSoundOn) {
-            AudioController.Instance.music.GetComponent<MusicController>().StartFadeIn();
+            AudioController.Instance.Music.GetComponent<MusicController>().StartFadeIn();
         }
         GetComponent<Canvas>().enabled = false;
     }

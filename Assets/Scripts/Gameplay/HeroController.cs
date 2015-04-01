@@ -1,8 +1,8 @@
 ﻿using UnityEngine;
 
 public class HeroController : UnitController {
-    public float mouseControlGap;
-	public float touchAreaGap;
+	[SerializeField] private float mouseControlGap;
+	[SerializeField] private float touchAreaGap;
 
 	private float positionY;
 

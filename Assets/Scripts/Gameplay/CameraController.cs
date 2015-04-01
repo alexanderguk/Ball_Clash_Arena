@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 
 public class CameraController : MonoBehaviour {
-    public float requiredSize;
+	[SerializeField] private float requiredSize;
 
 	void Start() {
 		ResetCamera();

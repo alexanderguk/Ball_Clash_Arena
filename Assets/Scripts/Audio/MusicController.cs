@@ -1,13 +1,12 @@
 ﻿using UnityEngine;
 
 public class MusicController : MonoBehaviour {
-	public float fadeInTime;
-	public float fadeOutTime;
-	public float maxVolume;
+	[SerializeField] private float fadeInTime;
+	[SerializeField] private float fadeOutTime;
+	[SerializeField] private float maxVolume;
 
 	private bool isFadeOut;
     private bool isFadeIn;
-
     private AudioSource music;
 
 	void Start() {

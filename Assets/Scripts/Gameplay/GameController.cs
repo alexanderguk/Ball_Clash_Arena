@@ -1,27 +1,26 @@
-﻿using UnityEngine;
-using UnityEngine.UI;
+using UnityEngine;
 
 public class GameController : Singleton<GameController> {
-    public GameObject logoBackgroundPrefab;
-    public GameObject cleanBackgroundPrefab;
+	[SerializeField] private GameObject logoBackgroundPrefab;
+	[SerializeField] private GameObject cleanBackgroundPrefab;
     
-    public float arenaWidth;
-    public float arenaHeight;
+	[SerializeField] private float arenaWidth;
+	[SerializeField] private float arenaHeight;
 
-    public GameObject cornerWallPrefab;
-    public GameObject heroPrefab;
-    public GameObject leftEnemyPrefab;
-    public GameObject topEnemyPrefab;
-    public GameObject rightEnemyPrefab;
-    public GameObject ballPrefab;
-    public GameObject barrierPrefab;
+	[SerializeField] private GameObject cornerWallPrefab;
+	[SerializeField] private GameObject heroPrefab;
+	[SerializeField] private GameObject leftEnemyPrefab;
+	[SerializeField] private GameObject topEnemyPrefab;
+	[SerializeField] private GameObject rightEnemyPrefab;
+	[SerializeField] private GameObject ballPrefab;
+	[SerializeField] private GameObject barrierPrefab;
     
     private GameObject hero;
     private GameObject leftEnemy;
     private GameObject topEnemy;
     private GameObject rightEnemy;
     
-    public int initialScore;
+	[SerializeField] private int initialScore;
     
     private int heroScore;
     private int leftEnemyScore;
@@ -33,11 +32,11 @@ public class GameController : Singleton<GameController> {
     public int TopEnemyScore {get { return topEnemyScore; } set { topEnemyScore = value; } }
     public int RightEnemyScore {get { return rightEnemyScore; } set { rightEnemyScore = value; } }
     
-    public float ballSpawnPeriodFrom;
-    public float ballSpawnPeriodTo;
-    public float ballSpawnPeriodIncreaseTime;
-    public int ballSpawnAngle;
-    public float ballSpawnDelay;
+	[SerializeField] private float ballSpawnPeriodFrom;
+	[SerializeField] private float ballSpawnPeriodTo;
+	[SerializeField] private float ballSpawnPeriodIncreaseTime;
+	[SerializeField] private int ballSpawnAngle;
+	[SerializeField] private float ballSpawnDelay;
 
 	private float ballSpawnTime;
     private float ballSpawnPeriod;
@@ -196,14 +195,14 @@ public class GameController : Singleton<GameController> {
         if (hero == null && !isRoundFinished) {
             isRoundFinished = true;
 			
-            AudioController.Instance.music.GetComponent<MusicController>().StartFadeOut();
-            AudioController.Instance.loseSound.Play();
+            AudioController.Instance.Music.GetComponent<MusicController>().StartFadeOut();
+            AudioController.Instance.LoseSound.Play();
 		}
         if (leftEnemy == null && topEnemy == null && rightEnemy == null && !isRoundFinished) {
             isRoundFinished = true;
 
-            AudioController.Instance.music.GetComponent<MusicController>().StartFadeOut();
-            AudioController.Instance.winSound.Play();
+            AudioController.Instance.Music.GetComponent<MusicController>().StartFadeOut();
+            AudioController.Instance.WinSound.Play();
 		}
 	}
 }

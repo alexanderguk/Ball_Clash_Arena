@@ -1,10 +1,10 @@
 using UnityEngine;
 
 public abstract class UnitController : MonoBehaviour {
-	public float maxSpeedCoeff;
-	public GameObject blastWave;
-	public float blastWaveCooldown;
-	public GameObject blastWaveIndicator;
+	[SerializeField] private float maxSpeedCoeff;
+	[SerializeField] private GameObject blastWaveIndicator;
+	[SerializeField] protected GameObject blastWave;
+	[SerializeField] protected float blastWaveCooldown;
 	
 	protected float currentBlastWaveCooldown;
 	protected float maxSpeed;

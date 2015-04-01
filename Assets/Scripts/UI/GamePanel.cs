@@ -1,11 +1,11 @@
-﻿using UnityEngine;
+using UnityEngine;
 using UnityEngine.UI;
 
 public class GamePanel : MonoBehaviour {
-    public Image soundButtonImage;
-    public Sprite soundOnSprite;
-    public Sprite soundOffSprite;
-    public Canvas pauseMenuCanvas;
+	[SerializeField] private Image soundButtonImage;
+	[SerializeField] private Sprite soundOnSprite;
+	[SerializeField] private Sprite soundOffSprite;
+	[SerializeField] private Canvas pauseMenuCanvas;
 
     private bool isSoundOn;
 
@@ -19,10 +19,10 @@ public class GamePanel : MonoBehaviour {
         if (!GameController.Instance.IsRoundFinished && Time.timeScale == 1)  {
             if (isSoundOn) {
                 soundButtonImage.sprite = soundOffSprite;
-                AudioController.Instance.music.GetComponent<MusicController>().StartFadeOut();
+                AudioController.Instance.Music.GetComponent<MusicController>().StartFadeOut();
             } else {
                 soundButtonImage.sprite = soundOnSprite;
-                AudioController.Instance.music.GetComponent<MusicController>().StartFadeIn();
+                AudioController.Instance.Music.GetComponent<MusicController>().StartFadeIn();
             }
             isSoundOn = !isSoundOn;
         }
@@ -30,13 +30,9 @@ public class GamePanel : MonoBehaviour {
 
     public void PauseButtonClick() {
         if (!GameController.Instance.IsRoundFinished) {
-            if (Time.timeScale == 0) {
-                Time.timeScale = 1;
-                AudioController.Instance.music.GetComponent<MusicController>().StartFadeIn();
-                pauseMenuCanvas.enabled = false;
-            } else {
+            if (Time.timeScale == 1) {
                 Time.timeScale = 0;
-                AudioController.Instance.music.GetComponent<MusicController>().Stop();
+                AudioController.Instance.Music.GetComponent<MusicController>().Stop();
                 pauseMenuCanvas.enabled = true;
             }
         }

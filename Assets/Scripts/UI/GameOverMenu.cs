@@ -2,7 +2,7 @@
 using UnityEngine.UI;
 
 public class GameOverMenu : MonoBehaviour {
-    public Text title;
+	[SerializeField] private Text title;
 
     void Start () {
         GetComponent<Canvas>().enabled = false;

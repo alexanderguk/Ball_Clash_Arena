@@ -1,7 +1,9 @@
 ﻿using UnityEngine;
 
 public class BlastWaveController : MonoBehaviour {
-	public float effectRangeCoeff;
+	[SerializeField] private float effectRangeCoeff;
+
+	public float EffectRangeCoeff { get { return effectRangeCoeff; } }
 
 	void Start() {
 		foreach (GameObject go in GameObject.FindGameObjectsWithTag("Ball")) {
@@ -10,7 +12,7 @@ public class BlastWaveController : MonoBehaviour {
 				                                                           go.transform.position.x - transform.position.x));
 			}
 		}
-		AudioController.Instance.blastWaveSound.Play();
+		AudioController.Instance.BlastWaveSound.Play();
 	}
 
 	void FixedUpdate() {

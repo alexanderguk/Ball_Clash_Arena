@@ -2,10 +2,10 @@
 using UnityEngine.UI;
 
 public class ScoreUpdater : MonoBehaviour {
-    public Text heroScore;
-    public Text leftEnemyScore;
-    public Text topEnemyScore;
-    public Text rightEnemyScore;
+	[SerializeField] private Text heroScore;
+	[SerializeField] private Text leftEnemyScore;
+	[SerializeField] private Text topEnemyScore;
+	[SerializeField] private Text rightEnemyScore;
 
 	void Start() {
 		heroScore = heroScore.GetComponent<Text>();

@@ -1,8 +1,8 @@
 using UnityEngine;
 
 public abstract class EnemyController : UnitController {
-	public float useBlastWaveChance;
-	public float restPositionOffset;
+	[SerializeField] private float useBlastWaveChance;
+	[SerializeField] protected float restPositionOffset;
 
 	private bool useBlastWave;
 	protected GameObject target;
@@ -16,7 +16,7 @@ public abstract class EnemyController : UnitController {
 	protected void UpdateBlastWave() {
 		if (target != null && currentBlastWaveCooldown <= 0 && useBlastWave &&
 		    Vector2.Distance(transform.position, target.transform.position) <= 
-		    GetComponent<SpriteRenderer>().bounds.size.x / 2f * blastWave.GetComponent<BlastWaveController>().effectRangeCoeff) {
+		    GetComponent<SpriteRenderer>().bounds.size.x / 2f * blastWave.GetComponent<BlastWaveController>().EffectRangeCoeff) {
 			(Instantiate(blastWave, new Vector2(transform.position.x, transform.position.y),
 			             Quaternion.identity) as GameObject).transform.parent = transform;
 			currentBlastWaveCooldown = blastWaveCooldown;

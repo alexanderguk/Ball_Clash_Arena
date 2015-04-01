@@ -1,12 +1,12 @@
 using UnityEngine;
 
 public class BallController : MonoBehaviour {
-    public float minSpeed;
-    public float maxSpeed;
-    public float kinematicTime;
-    public float accelerationTime;
-    public float scoreLineMargin;
-	public float bumpAccelerationCoeff;
+	[SerializeField] private float minSpeed;
+	[SerializeField] private float maxSpeed;
+	[SerializeField] private float kinematicTime;
+	[SerializeField] private float accelerationTime;
+	[SerializeField] private float scoreLineMargin;
+	[SerializeField] private float bumpAccelerationCoeff;
 
     private float initialDirection;
 	private float currentKinematicTime;
@@ -30,7 +30,7 @@ public class BallController : MonoBehaviour {
 		GetComponent<Rigidbody2D>().velocity = 
 			new Vector2(Mathf.Cos(initialDirection) * currentSpeed, Mathf.Sin(initialDirection) * currentSpeed);
 
-        AudioController.Instance.spawnBallSound.Play();
+        AudioController.Instance.SpawnBallSound.Play();
 	}
 	
 	void FixedUpdate() {
@@ -62,19 +62,19 @@ public class BallController : MonoBehaviour {
             if (transform.position.x < - GameController.Instance.ArenaWidth / 2 - scoreLineMargin) {
 				isScored = true;
                 GameController.Instance.LeftEnemyScore--;
-                AudioController.Instance.scoreBallSound.Play();
+                AudioController.Instance.ScoreBallSound.Play();
             } else if (transform.position.x > GameController.Instance.ArenaWidth / 2 + scoreLineMargin) {
 				isScored = true;
                 GameController.Instance.RightEnemyScore--;
-                AudioController.Instance.scoreBallSound.Play();
+                AudioController.Instance.ScoreBallSound.Play();
             } else if (transform.position.y < - GameController.Instance.ArenaHeight / 2 - scoreLineMargin) {
 				isScored = true;
                 GameController.Instance.HeroScore--;
-                AudioController.Instance.scoreBallSound.Play();
+                AudioController.Instance.ScoreBallSound.Play();
             } else if (transform.position.y > GameController.Instance.ArenaHeight / 2 + scoreLineMargin) {
 				isScored = true;
                 GameController.Instance.TopEnemyScore--;
-                AudioController.Instance.scoreBallSound.Play();
+                AudioController.Instance.ScoreBallSound.Play();
 			} 
 		}
 	}
@@ -85,8 +85,8 @@ public class BallController : MonoBehaviour {
 		                                 previousColor.b + (newColor.b - previousColor.b) * currentAcceleration);
 	}
 
-	void OnCollisionEnter2D(Collision2D collision) {
-        AudioController.Instance.collisionBallSound.Play();
+	void OnCollisionEnter2D() {
+        AudioController.Instance.CollisionBallSound.Play();
 	}
 
 	public void Bump(float direction) {

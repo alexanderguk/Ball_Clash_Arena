@@ -2,7 +2,7 @@
 using UnityEngine.UI;
 
 public class MenuController : MonoBehaviour {
-    public GameObject cleanBackgroundPrefab;
+	[SerializeField] private GameObject cleanBackgroundPrefab;
 
 	void Start() {
         CreateBackground();
