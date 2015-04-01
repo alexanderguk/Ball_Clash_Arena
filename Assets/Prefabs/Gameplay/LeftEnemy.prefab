@@ -73,7 +73,7 @@ MonoBehaviour:
   maxSpeedCoeff: 50
   restPositionOffset: 1
   blastWave: {fileID: 184630, guid: 2f419da063320c4459eb6f44fc427ba0, type: 2}
-  blastWaveCooldown: 1
+  blastWaveCooldown: .699999988
   useBlastWaveChance: .800000012
 --- !u!212 &21291492
 SpriteRenderer:
