@@ -40,5 +40,11 @@ public class GamePanel : MonoBehaviour {
                 pauseMenuCanvas.enabled = true;
             }
         }
-    }
+	}
+	
+	public void RestartButtonClick() {
+		if (!GameController.Instance.IsRoundFinished && Time.timeScale == 1) {
+			Application.LoadLevel("GameScene");
+		}
+	}
 }
