@@ -75,6 +75,7 @@ MonoBehaviour:
   kinematicTime: .400000006
   accelerationTime: 10
   scoreLineMargin: .0500000007
+  bumpAccelerationCoeff: .100000001
 --- !u!212 &21207550
 SpriteRenderer:
   m_ObjectHideFlags: 1

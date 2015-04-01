@@ -74,7 +74,7 @@ MonoBehaviour:
   blastWave: {fileID: 184630, guid: 2f419da063320c4459eb6f44fc427ba0, type: 2}
   blastWaveCooldown: .699999988
   blastWaveIndicator: {fileID: 187064, guid: a8a32c8f2d0db87478c278170a5c36fc, type: 2}
-  useBlastWaveChance: .800000012
+  useBlastWaveChance: .600000024
   restPositionOffset: 1
 --- !u!212 &21295138
 SpriteRenderer:
