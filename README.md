@@ -3,7 +3,7 @@ Ball Clash Arena
 
 2D arcade game developed in Unity.
 
-See the demo at http://alexanderguk.github.io/Ball_Clash_Arena/.
+See the demo at https://alexanderguk.github.io/BallClashArena/.
 
 #### Screenshots
 <p align="center">
